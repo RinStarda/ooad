@@ -12,6 +12,12 @@ function showProblemDiagram()
 		else if (models[i].attributes.type == "standard.Link") {
 			models[i].attr('line/visibility','hidden');
 		}
+		else if (models[i].attributes.type == "reference.CustomLink"){//constraint.CustomLink
+			models[i].attr('line/visibility','hidden')
+		}
+		else if (models[i].attributes.type == "constraint.CustomLink") {
+			models[i].attr('line/visibility','hidden');
+		}
 	}
 	return;
 }
@@ -27,6 +33,12 @@ function showContextDiagram(){
 				models[i].attr('buttonLabel/visibility','visible');
 			}
 			else if (models[i].attributes.type == "standard.Link") {
+				models[i].attr('line/visibility','visible');
+			}
+			else if (models[i].attributes.type == "reference.CustomLink"){
+				models[i].attr('line/visibility','visible')
+			}
+			else if (models[i].attributes.type == "constraint.CustomLink") {
 				models[i].attr('line/visibility','visible');
 			}
 	}
