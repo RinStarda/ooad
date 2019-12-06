@@ -1,5 +1,5 @@
 var vphenomenons = new Vue({
-    el:'#vue_phenomenon',
+    el:'#showphenomenon',
     data: {
         items: null
     }
@@ -55,14 +55,23 @@ function updateElement(){
     selector.options.push(models[models.length-1].attributes.attrs.label.text);
 }
 
-function updatePhenomenon(){
-    vphenomenons.items.push({initiator:selector.initiator,reciever:selector.reciever,content:selector.content});
+function updatePhenomenon(phenomenon){
+    vphenomenons.items.push({initiator:getLabelById(phenomenon.Initiator),reciever:getLabelById(phenomenon.Reciever),description:phenomenon.description});
 }
 
 function getLabelById(id)
 {
 	var models = paper.model.attributes.cells.models;
 	for(i=0;i<models.length;i++){
-		if(models[i].id==id) return modes[i].attrs.label.text;
+		if(models[i].id==id) return models[i].attrs.label.text;
 	}
+}
+function getPhenomenonList(model){
+	var phenomenons = model.phenomenon;
+	var str = "<table><tr><th>Initiator</th><th>Receiver</th><th>Description</th></tr>";
+	for(var i=0;i<phenomenons.length;i++){
+		str += '<tr>'+'<td>'+ getLabelById(phenomenons[i].Initiator)+'</td>'+'<td>'+ getLabelById(phenomenons[i].Receiver)+'</td>'+'<td>'+ phenomenons[i].description+'</td>'+'</tr>'
+	}
+	str += '</table>';
+	return str;
 }

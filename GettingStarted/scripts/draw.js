@@ -6,7 +6,7 @@ var graph = new joint.dia.Graph;
 var paper = new joint.dia.Paper({
     el: document.getElementById('myholder'),
     model: graph,
-    width: 780,
+    width: 1200,
     height: 1000,
     gridSize: 1,
     drawGrid:true,

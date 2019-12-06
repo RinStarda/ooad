@@ -7,7 +7,8 @@
     <link href="css/1.css" rel="stylesheet" type="text/css" />
     <link href="css/all.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-
+    <link rel="stylesheet" type="text/css" href="../../dist/joint.ui.contextToolbar.min.css">
+    <link rel="stylesheet" type="text/css" href="../../dist/joint.ui.popup.min.css">
 
   </head>
 
@@ -19,7 +20,7 @@
     <a href="javascript:showContextDiagram();" >Context Diagram</a>
     <a href="javascript:showProblemDiagram();">Problem Diagram</a>
     <a>Check</a>
-    <a>Help</a>
+    <a id="editor">Editor</a>
     <div class="nav-left">
       <a href="#" class="local">Painter</a>
     </div>
@@ -41,7 +42,7 @@
     </div>
 
     <div class="right">
-
+      <div>
       <ul class="ce" >
         <li>
           <a href="#">Diagram</a>
@@ -61,16 +62,16 @@
           <a href="#">Phenomenon</a>
           <ul class="er">
 
-            <table id="vue_phenomenon">
+            <table id="showphenomenon">
               <tr>
                 <th>Initiator  </th>
                 <th>Reciever  </th>
-                <th>Content</th>
+                <th>Description</th>
               </tr>
               <tr v-for="item in items">
                 <td>{{item.initiator}}</td>
                 <td>{{item.reciever}}</td>
-                <td>{{item.content}}</td>
+                <td>{{item.description}}</td>
               </tr>
             </table>
           </ul>
@@ -95,10 +96,8 @@
 
 
         <div class="clear"></div>
-      </ul>
+      </ul></div>
 
-      <div class="inspector-container"></div>
-      <div class="link-inspector-container"></div>
 
       <div id="selector">
         <select v-model="initiator">
@@ -123,14 +122,6 @@
 
 
 
-
-  <!--&lt;!&ndash;<script src="../../node_modules/jquery/dist/jquery.js"></script>&ndash;&gt;-->
-<!--<script src="../../node_modules/lodash/lodash.js"></script>-->
-<!--<script src="../../node_modules/backbone/backbone.js"></script>-->
-<!--<script src="../../node_modules/graphlib/dist/graphlib.core.js"></script>-->
-<!--<script src="../../node_modules/dagre/dist/dagre.core.js"></script>-->
-<!--<script src="../objects/joint.js"></script>-->
-<!--<script src="../objects/try.js"></script>-->
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
@@ -141,13 +132,14 @@
 <script src="../scripts/source/dagre.core.js"></script>
 <script src="../scripts/source/vue.js"></script>
 <script src="../scripts/source/joint.js"></script>
+<script src="../../dist/joint.ui.contextToolbar.min.js"></script>
+<script src="../../dist/joint.ui.popup.min.js"></script>
 
 <script src="../scripts/data.js"></script>
 <script src="../scripts/draw.js"></script>
 <script src="../scripts/events.js"></script>
 <script src="../scripts/presentation.js"></script>
 <script src="../scripts/reference.js"></script>
-
 
 <script src="../scripts/source/painter.min.js"></script>
 

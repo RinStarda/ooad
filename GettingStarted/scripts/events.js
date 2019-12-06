@@ -62,25 +62,26 @@ paper.on('element:pointerclick', function(elementView) {
     });
 
 
-paper.on('element:pointerclick', function(elementView) {
-    var name = prompt("Please enter your name");
-    elementView.model.attr('label/text', name);
-
-    // layer.prompt(
-    //     {
-    //         btn: ["确定", "取消", "删除"],
-    //         value: "1"
-    //     }, function (val, index) {
-    //         layer.msg('得到了' + val);
-    //         layer.close(index);
-    //     }, function (index) {
-    //         layer.close(index);
-    //     }, function (index) {
-    //         alert(1);
-    //         layer.close(index);
-    //     }
-    //
-    // );
+paper.on('element:pointerdblclick', function(elementView) {
+   var popup = new joint.ui.Popup({
+        events: {
+            'click .confirm': function(){
+                var description = this.$('.description').val();
+                elementView.model.attr('label/text',description);
+                console.log(elementView.model);
+            },
+            'click .cancel': 'remove'
+        },
+        content: [
+            '<div>',
+            'Description: <input class="description" type="text" value="'+elementView.model.attributes.attrs.label.text+'"> <br><br>',
+            '<button class="confirm">Confirm</button><br>',
+            '<button class="cancel">Cancel</button>',
+            '</div>'
+        ].join(''),
+        target: document.getElementById('editor')
+    });
+   popup.render();
 });
 
 
@@ -106,21 +107,40 @@ paper.on('element:button:pointerdown', function(elementView, evt) {
 
 
 paper.on('link:pointerclick', function(linkView) {
-    joint.ui.Inspector.create('.inspector-container', {
-        cell: linkView.model,
-        inputs: {
-            'labels/0/attrs/text/text': {//
-                type: 'text',
-                label: 'Label',
-                group: 'basic',
-                index: 1
+    var source_id = linkView.model.attributes.source.id;
+    var target_id = linkView.model.attributes.target.id;
+    if(linkView.model.phenomenon == undefined ){
+        linkView.model.phenomenon = new Array();
+        };
+    var popup = new joint.ui.Popup({
+        events:{
+            'click .add':function(){
+                var phenomenon = this.$('.phenomenon').val();
+                var selected = this.$('.select option:selected').val();
+                var unselected = selected==target_id? source_id:target_id;
+                var p = {
+                    Initiator: selected,
+                    Receiver: unselected,
+                    description: phenomenon
+                };
+                linkView.model.phenomenon.push(p);
+                updatePhenomenon(p);
+                popup.remove();
             }
         },
-        groups: {
-            basic: {
-                label: 'Basic',
-                index: 1
-            }
-        }
+        content: '<div>'+
+                 'Initiator<br>'+
+                 '<select class="select">'+
+                 '<option value ="'+source_id+'">'+getLabelById(source_id)+'</option><br>'+
+                 '<option value ="'+target_id+'">'+getLabelById(target_id)+'</option><br>'+
+                 '</select><br>'+
+                 'phenomenon<br>'+
+                 '<input type="text" class="phenomenon"><br>'+
+                 'phenomenonList<br>'+
+                 getPhenomenonList(linkView.model)+
+                 '<button class="add">add</button><br>'+
+                 '</div>',
+        target: document.getElementById('editor')
     });
+   popup.render();
 });
