@@ -13,16 +13,16 @@ var paper = new joint.dia.Paper({
     background: {
         color:'whitesmoke'
     },
-    elementView: joint.dia.ElementView.extend({
-        pointerdblclick: function(evt, x, y) {
-            this.model.remove();
-        }
-    }),
-	linkView: joint.dia.LinkView.extend({
-        pointerdblclick: function(evt, x, y) {
-            this.model.remove();
-        }
-    })
+    // elementView: joint.dia.ElementView.extend({
+    //     pointerdblclick: function(evt, x, y) {
+    //         this.model.remove();
+    //     }
+    // }),
+	// linkView: joint.dia.LinkView.extend({
+    //     pointerdblclick: function(evt, x, y) {
+    //         this.model.remove();
+    //     }
+    // })
 });
 
  function drawInterface()
@@ -186,12 +186,6 @@ function drawRequirement(rname)
 		    }, {
 				tagName:'text',
 				selector:'label'
-			},{
-			tagName: 'rect',
-		    selector: 'button'
-			}, {
-		    tagName: 'text',
-		    selector: 'buttonLabel'
 			}]
 		});
 	var element = new CustomElement();
@@ -241,12 +235,6 @@ function drawProblemDomain(pname)
             }, {
         		tagName:'text',
         		selector:'label'
-        	},{
-        	tagName: 'rect',
-            selector: 'button'
-        	}, {
-            tagName: 'text',
-            selector: 'buttonLabel'
         	}]
         });
     var element = new CustomElement();
@@ -278,8 +266,10 @@ function drawMachine(mname)
 		alert('machine existed!');
 		return;
 	}
-    mname=typeof(mname) !='undefined' ? mname : "machine";	
-	var CustomElement = joint.dia.Element.define('machine.CustomElement', {
+    mname=typeof(mname) !='undefined' ? mname : "machine";
+
+
+    var CustomElement = joint.dia.Element.define('machine.CustomElement', {
 	    attrs: {
 			label: {
 			    fill:'black'
@@ -313,12 +303,6 @@ function drawMachine(mname)
 	    },{
 			tagName:'text',
 			selector:'label'
-		},{
-		tagName: 'rect',
-	    selector: 'button'
-		}, {
-	    tagName: 'text',
-	    selector: 'buttonLabel'
 		}]
 	});
 	var element = new CustomElement();

@@ -41,64 +41,90 @@
     </div>
 
     <div class="right">
-      <div class="inspector-container"></div>
-      <div class="link-inspector-container"></div>
 
-      <ul class="ce">
+      <ul class="ce" >
         <li>
-          <a href="#">目录B <img class="more" src="images/more.png"/></a>
+          <a href="#">Diagram</a>
           <ul class="er">
-            <li>     <a  href="##">二级目录A</a>    </li>
+            <li> <a  href="##">Description</a>    </li>
             <li class="e_li">
-              <a  href="##">二级目录B</a>
-
+              <a  href="##">Context Diagram</a>
             </li>
-            <li>     <a  href="##">二级目录C</a>   </li>
             <li class="e_li">
-              <a  href="##">二级目录D</a>
-
+              <a  href="##">Problem Diagram</a>
             </li>
+
           </ul>
         </li>
 
         <li>
-          <a href="#">目录B <img class="more" src="images/more.png"/></a>
+          <a href="#">Phenomenon</a>
           <ul class="er">
-            <li>     <a  href="##">二级目录A</a>    </li>
-            <li class="e_li">
-              <a  href="##">二级目录B</a>
 
-            </li>
-            <li>     <a  href="##">二级目录C</a>   </li>
-            <li class="e_li">
-              <a  href="##">二级目录D</a>
-
-            </li>
+            <table id="vue_phenomenon">
+              <tr>
+                <th>Initiator  </th>
+                <th>Reciever  </th>
+                <th>Content</th>
+              </tr>
+              <tr v-for="item in items">
+                <td>{{item.initiator}}</td>
+                <td>{{item.reciever}}</td>
+                <td>{{item.content}}</td>
+              </tr>
+            </table>
           </ul>
         </li>
 
         <li>
-          <a href="#">目录B <img class="more" src="images/more.png"/></a>
+          <a href="#">Reference</a>
           <ul class="er">
-            <li>     <a  href="##">二级目录A</a>    </li>
-            <li class="e_li">
-              <a  href="##">二级目录B</a>
-
-            </li>
-            <li>     <a  href="##">二级目录C</a>   </li>
-            <li class="e_li">
-              <a  href="##">二级目录D</a>
-
-            </li>
+            <table id="vue_references">
+              <tr>
+                <th>Name  </th>
+                <th>Content  </th>
+              </tr>
+              <tr v-for="item in items">
+                <td>{{item.name}}</td>
+                <td>{{item.content}}</td>
+              </tr>
+            </table>
           </ul>
         </li>
+
+
 
         <div class="clear"></div>
       </ul>
 
+      <div class="inspector-container"></div>
+      <div class="link-inspector-container"></div>
+
+      <div id="selector">
+        <select v-model="initiator">
+          <option v-for="option in options">{{option}}</option>
+        </select>
+        <select v-model="reciever">
+          <option v-for="option in options">{{option}}</option>
+        </select>
+        <input v-model="content">
+        <button onclick="updatePhenomenon()"> add </button>
+      </div>
+      <div class="inspector-container"></div>
+
+      <div id="addReference">
+        <input v-model="name">
+        <input v-model="content">
+        <button onclick="updatePhenomenon()"> add </button>
+      </div>
+      <div class="inspector-container"></div>
+
     </div>
 
-<!--&lt;!&ndash;<script src="../../node_modules/jquery/dist/jquery.js"></script>&ndash;&gt;-->
+
+
+
+  <!--&lt;!&ndash;<script src="../../node_modules/jquery/dist/jquery.js"></script>&ndash;&gt;-->
 <!--<script src="../../node_modules/lodash/lodash.js"></script>-->
 <!--<script src="../../node_modules/backbone/backbone.js"></script>-->
 <!--<script src="../../node_modules/graphlib/dist/graphlib.core.js"></script>-->
@@ -120,10 +146,13 @@
 <script src="../scripts/draw.js"></script>
 <script src="../scripts/events.js"></script>
 <script src="../scripts/presentation.js"></script>
+<script src="../scripts/reference.js"></script>
+
 
 <script src="../scripts/source/painter.min.js"></script>
 
 <script src="../../build/rappid.min.js"></script>
+
 </body>
 
 </html>

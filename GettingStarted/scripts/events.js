@@ -60,28 +60,29 @@ paper.on('element:pointerclick', function(elementView) {
 	}
 	
     });
-	
-//paper.on('element:contextmenu', function(elementView) {
-	
+
+
 paper.on('element:pointerclick', function(elementView) {
-    joint.ui.Inspector.create('.inspector-container', {
-        cell: elementView.model,
-        inputs: {
-            'attrs/label/text': {
-                type: 'text',
-                label: 'Label',
-                group: 'basic',
-                index: 1
-            }
-        },
-        groups: {
-            basic: {
-                label: 'Basic',
-                index: 1
-            }
-        }
-    });
+    var name = prompt("Please enter your name");
+    elementView.model.attr('label/text', name);
+
+    // layer.prompt(
+    //     {
+    //         btn: ["确定", "取消", "删除"],
+    //         value: "1"
+    //     }, function (val, index) {
+    //         layer.msg('得到了' + val);
+    //         layer.close(index);
+    //     }, function (index) {
+    //         layer.close(index);
+    //     }, function (index) {
+    //         alert(1);
+    //         layer.close(index);
+    //     }
+    //
+    // );
 });
+
 
 paper.on('element:button:pointerdown', function(elementView, evt) {
     evt.stopPropagation(); // stop any further actions with the element view (e.g. dragging)
