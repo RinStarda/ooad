@@ -163,11 +163,11 @@ joint.dia.Link.define('constraint.CustomLink',{
 
 function drawRequirement(rname)
 {
-	// if(requirement.id!=null)
-	// {
-	// 	alert('requirement existed!');
-	// 	return;
-	// }
+	if(requirement.id!=null)
+	{
+		alert('requirement existed!');
+		return;
+	}
     rname=typeof(rname) !='undefined' ? rname : "requirement";
 	var CustomElement = joint.dia.Element.define('requirement.CustomElement', {
 		    attrs: {
@@ -273,11 +273,11 @@ function drawProblemDomain(pname)
 
 function drawMachine(mname)
 {
-	// if(machine.id!=null)
-	// {
-	// 	alert('machine existed!');
-	// 	return;
-	// }
+	if(machine.id!=null)
+	{
+		alert('machine existed!');
+		return;
+	}
     mname=typeof(mname) !='undefined' ? mname : "machine";	
 	var CustomElement = joint.dia.Element.define('machine.CustomElement', {
 	    attrs: {
