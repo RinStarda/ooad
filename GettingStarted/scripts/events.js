@@ -139,7 +139,7 @@ paper.on('link:pointerclick', function(linkView) {
                  '<input type="text" class="phenomenon" name="phenomenon"><br>'+
                  'phenomenonList<br>'+
                  getPhenomenonList(linkView.model)+
-                 '<button class="add" style="background-color: beige;float:right">add</button><br>'+
+                 '<br><button class="add" style="background-color: beige;float:right">add</button><br>'+
                  '</div>',
         target: document.getElementById('editor')
     });

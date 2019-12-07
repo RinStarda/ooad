@@ -83,9 +83,9 @@ function getLabelById(id)
 }
 function getPhenomenonList(model){
 	var phenomenons = model.phenomenon;
-	var str = "<table><tr><th>Initiator</th><th>Receiver</th><th>Description</th></tr>";
+	var str = "<table border='1px' cellspacing='0' cellpadding='0'><tr><th bgcolor='#deb887'>Initiator</th><th bgcolor='#deb887'>Receiver</th><th bgcolor='#deb887'>Description</th></tr>";
 	for(var i=0;i<phenomenons.length;i++){
-		str += '<tr>'+'<td>'+ getLabelById(phenomenons[i].Initiator)+'</td>'+'<td>'+ getLabelById(phenomenons[i].Receiver)+'</td>'+'<td>'+ phenomenons[i].description+'</td>'+'</tr>'
+		str += '<tr bgcolor="#f5f5dc">'+'<td>'+ getLabelById(phenomenons[i].Initiator)+'</td>'+'<td>'+ getLabelById(phenomenons[i].Receiver)+'</td>'+'<td>'+ phenomenons[i].description+'</td>'+'</tr>'
 	}
 	str += '</table>';
 	return str;

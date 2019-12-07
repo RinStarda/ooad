@@ -207,7 +207,7 @@ function drawRequirement(rname)
 			visibility: 'visible'
 	    }
 	});
-	element.position(300, 150);
+	element.position(600, 150);
 	element.resize(60, 30);
 	element.addTo(graph);
 	var models = paper.model.attributes.cells.models;
@@ -251,7 +251,7 @@ function drawProblemDomain(pname)
             refHeight: '100%',
         }
     });
-	element.position(300, 150);
+	element.position(300, 50);
 	element.resize(130, 50);
     element.addTo(graph);
 	updateElement();
@@ -330,7 +330,7 @@ function drawMachine(mname)
 	        refHeight: '100%',
 	    }
 	});
-	element.position(280, 130);
+	element.position(100, 150);
 	element.resize(80, 50);
     element.addTo(graph);
 	updateElement();
