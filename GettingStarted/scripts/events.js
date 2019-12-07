@@ -151,21 +151,23 @@ function checkContextDiagram(){
     var solomachine = true;//检查是否有孤立machine
     var notexistdomain = true;//是否存在domain
     var existph = true;//假设每个interface都有pheno...
+    var domain = new Array();
 
     var models = paper.model.attributes.cells.models;
     var machine_id = null;
 
     for(var i=0;i<models.length;i++){
         if(models[i].attributes.type == "machine.CustomElement") machine_id = models[i].id;
+        if(models[i].attributes.type == "domain.CustomElement") domain.push(models[i].id);
     }
 
     for(var i=0;i<models.length;i++){
         if(models[i].attributes.type == "interface.CustomLink"){
             if(models[i].attributes.source.id == machine_id) solomachine = false;
             if(models[i].attributes.target.id == machine_id) solomachine = false;
-            console.log(models[i]);
             if(models[i].phenomenon == undefined || models[i].phenomenon.length==0) existph = false; 
-
+            if(domain.indexOf(models[i].attributes.source.id)!=-1)domain.splice(domain.indexOf(models[i].attributes.source.id));
+            if(domain.indexOf(models[i].attributes.target.id)!=-1)domain.splice(domain.indexOf(models[i].attributes.target.id));
 
         }
         else if(models[i].attributes.type == "domain.CustomElement") notexistdomain = false;
@@ -174,7 +176,7 @@ function checkContextDiagram(){
     var correct = "context diagram is correct";
     var error = null;
 
-    if(solomachine==true) error = "exist solomachine\n";//孤立machine怎么翻译
+    if(solomachine==true) error = "exist isolated machine\n";//孤立machine怎么翻译
     else if(notexistdomain==true) {
         if(error==null){
             error = "not exist domain\n";
@@ -183,9 +185,15 @@ function checkContextDiagram(){
     }
     else if(existph == false){
         if(error == null){
-            error = "undefined interface";
+            error = "undefined interface\n";
         }
-        else error += "undefined interface";
+        else error += "undefined interface\n";
+    }
+    else if(domain.length!=0){
+        if(error == null){
+            error = "isolated domain\n";
+        }
+        else error += "isolated domain\n";
     }
 
     if(error!=null)
