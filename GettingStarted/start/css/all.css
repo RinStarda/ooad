@@ -7,7 +7,7 @@
   margin-top: 0px;
   margin-left: 0px;
   height: 1000px;
-  width: 80px;
+  width: 110px;
   background-color: beige;
   position:absolute;
   text-align: center;
@@ -28,9 +28,9 @@
 
 .right{
   right: 0px;
-  top: 70px;
+  top: 85px;
   height: 1000px;
-  width: 235px;
+  width: 280px;
   background-color: beige;
   position:absolute;
 }

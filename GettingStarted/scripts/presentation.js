@@ -22,7 +22,7 @@ function showProblemDiagram()
 	return;
 }
 
-function showContextDiagram(){
+function showProblemDiagram(){
 	var models = paper.model.attributes.cells.models;
 	for(var i=0;i<models.length;i++){
 	    if(models[i].attributes.type == "requirement.CustomElement")

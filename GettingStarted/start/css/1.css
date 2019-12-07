@@ -17,7 +17,7 @@ li
 .header {
   background-image: linear-gradient(burlywood,beige);
   text-align: center;
-  height:70px;
+  height:85px;
 }
 a {
   text-decoration: none;
@@ -28,7 +28,7 @@ a {
 
 .nav {
   width: 1000px;
-  height: 70px;
+  height: 100px;
   margin: 0 auto;
   line-height: 40px;
   font-size: 0;
@@ -50,6 +50,7 @@ a {
   position: relative;
   overflow: hidden;
   font-size: 12px;
+  top:13px
 }
 
 .icon {
@@ -66,7 +67,7 @@ a {
   margin-left: 0px;
   font-size: 40px;
   padding-top: 100px;
-  font-style:italic;
+  /*font-style:italic;*/
 }
 
 .nav-right {
