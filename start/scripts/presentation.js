@@ -1,4 +1,4 @@
-function showProblemDiagram()
+function showContextDiagram()
 {
 	var models = paper.model.attributes.cells.models;
 	for(var i=0;i<models.length;i++){

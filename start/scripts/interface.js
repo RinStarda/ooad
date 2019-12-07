@@ -1,14 +1,12 @@
-function drawReference()
+function drawInterface()
 {
-    joint.dia.Link.define('reference.CustomLink',{
+    joint.dia.Link.define('interface.CustomLink',{
         attrs: {
             line: {
                 connection: true,
                 stroke: '#333333',
                 strokeWidth: 2,
-                strokeLinejoin: 'round',
-                strokeDasharray: '5 5',
-                strokeDashoffset: '2.5'
+                strokeLinejoin: 'round'
             },
             wrapper: {
                 connection: true,
@@ -34,8 +32,16 @@ function drawReference()
             }
         }]
     });
-    var link = new joint.shapes.reference.CustomLink();
+    var link = new joint.shapes.interface.CustomLink();
     link.source(source);
     link.target(target);
     link.addTo(graph);
+
+    var removeButton = new joint.linkTools.Remove();
+    var toolsView = new joint.dia.ToolsView({
+        tools:[removeButton]
+    });
+    var linkView = link.findView(paper);
+    linkView.addTools(toolsView);
+    linkView.showTools();
 }
