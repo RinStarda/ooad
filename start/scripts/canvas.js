@@ -22,7 +22,7 @@ var paper = new joint.dia.Paper({
     el: document.getElementById('myholder'),
     model: graph,
     width: 1200,
-    height: 1000,
+    height: 600,
     gridSize: 1,
     drawGrid:true,
     background: {
