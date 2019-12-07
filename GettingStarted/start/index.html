@@ -16,7 +16,7 @@
 
 <div class="header">
   <div class="nav">
-    <a>New</a>
+    <a id="newPro">New</a>
     <a href="javascript:showContextDiagram();" >Context Diagram</a>
     <a href="javascript:showProblemDiagram();">Problem Diagram</a>
     <a>Check</a>
@@ -99,23 +99,23 @@
       </ul></div>
 
 
-      <div id="selector">
-        <select v-model="initiator">
-          <option v-for="option in options">{{option}}</option>
-        </select>
-        <select v-model="reciever">
-          <option v-for="option in options">{{option}}</option>
-        </select>
-        <input v-model="content">
-        <button onclick="updatePhenomenon()"> add </button>
-      </div>
-      <div class="inspector-container"></div>
+      <!--<div id="selector">-->
+        <!--<select v-model="initiator">-->
+          <!--<option v-for="option in options">{{option}}</option>-->
+        <!--</select>-->
+        <!--<select v-model="reciever">-->
+          <!--<option v-for="option in options">{{option}}</option>-->
+        <!--</select>-->
+        <!--<input v-model="content">-->
+        <!--<button onclick="updatePhenomenon()"> add </button>-->
+      <!--</div>-->
+      <!--<div class="inspector-container"></div>-->
 
-      <div id="addReference">
-        <input v-model="name">
-        <input v-model="content">
-        <button onclick="updatePhenomenon()"> add </button>
-      </div>
+      <!--<div id="addReference">-->
+        <!--<input v-model="name">-->
+        <!--<input v-model="content">-->
+        <!--<button onclick="updatePhenomenon()"> add </button>-->
+      <!--</div>-->
       <div class="inspector-container"></div>
 
     </div>

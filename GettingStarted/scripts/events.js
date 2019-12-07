@@ -75,8 +75,8 @@ paper.on('element:pointerdblclick', function(elementView) {
         content: [
             '<div>',
             'Description: <input class="description" type="text" value="'+elementView.model.attributes.attrs.label.text+'"> <br><br>',
-            '<button class="confirm">Confirm</button><br>',
-            '<button class="cancel">Cancel</button>',
+            '<button class="confirm" style="background-color: beige;float:right">Confirm</button>',
+            '<button class="cancel" style="background-color: beige;float:right"">Cancel</button>',
             '</div>'
         ].join(''),
         target: document.getElementById('editor')
@@ -135,10 +135,10 @@ paper.on('link:pointerclick', function(linkView) {
                  '<option value ="'+target_id+'">'+getLabelById(target_id)+'</option><br>'+
                  '</select><br>'+
                  'phenomenon<br>'+
-                 '<input type="text" class="phenomenon"><br>'+
+                 '<input type="text" class="phenomenon" name="phenomenon"><br>'+
                  'phenomenonList<br>'+
                  getPhenomenonList(linkView.model)+
-                 '<button class="add">add</button><br>'+
+                 '<button class="add" style="background-color: beige;float:right">add</button><br>'+
                  '</div>',
         target: document.getElementById('editor')
     });

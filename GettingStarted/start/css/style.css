@@ -5,7 +5,7 @@ li{list-style-type:none;}
 img{border:0px;vertical-align:middle;}
 a{text-decoration:none;outline:none;blr:expression(this.onFocus=this.blur());}
 .clear{clear:both;}
-.ce{display:block;width:220px;background:burlywood;position:fixed;z-index:5;top:140px;right:0px;}
+.ce{display:block;width:220px;background:burlywood;position:fixed;z-index:5;top:80px;right:0px;}
 .ce li{border-bottom: 1px solid burlywood;border-top: 1px solid burlywood;}
 .more{margin-left: 36px;}
 .ce li a{padding: 10px 10px 10px 40px;color:black;display:block;cursor:pointer;background:url(../images/tu.png) no-repeat 10px center;}
