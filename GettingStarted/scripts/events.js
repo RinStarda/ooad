@@ -67,8 +67,9 @@ paper.on('element:pointerdblclick', function(elementView) {
         events: {
             'click .confirm': function(){
                 var description = this.$('.description').val();
+                var oldname = elementView.model.attributes.attrs.label.text;
                 elementView.model.attr('label/text',description);
-                console.log(elementView.model);
+                updatePhenomenon(oldname,description);
             },
             'click .cancel': 'remove'
         },
@@ -124,7 +125,7 @@ paper.on('link:pointerclick', function(linkView) {
                     description: phenomenon
                 };
                 linkView.model.phenomenon.push(p);
-                updatePhenomenon(p);
+                addPhenomenon(p);
                 popup.remove();
             }
         },

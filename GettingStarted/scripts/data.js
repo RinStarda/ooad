@@ -55,8 +55,23 @@ function updateElement(){
     selector.options.push(models[models.length-1].attributes.attrs.label.text);
 }
 
-function updatePhenomenon(phenomenon){
-    vphenomenons.items.push({initiator:getLabelById(phenomenon.Initiator),reciever:getLabelById(phenomenon.Reciever),description:phenomenon.description});
+function addPhenomenon(phenomenon){
+    vphenomenons.items.push({initiator:getLabelById(phenomenon.Initiator),reciever:getLabelById(phenomenon.Receiver),description:phenomenon.description});
+}
+
+function updatePhenomenon(oldname,newname){
+	var links = vphenomenons.items;
+	for(var i=0;i<links.length;i++){
+		if(links[i].initiator == oldname){
+			links[i].initiator = newname;
+			
+		}
+		if(links[i].reciever == oldname){
+			links[i].reciever = newname;
+			
+		}
+	}
+
 }
 
 function getLabelById(id)
