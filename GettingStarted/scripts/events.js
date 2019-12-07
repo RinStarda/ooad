@@ -212,6 +212,6 @@ function checkProblemDiagram(){
     if(flag==false) alert("Please add at least one constraint!");
     else if(cph==false) alert("Please add phenomenon on the constraint!");
     else if(rph==false) alert("Please add phenomenon on the reference!")
-    else alert("Correct Requirement Diagram!");
+    else alert("Correct Problem Diagram!");
     return;
 }
