@@ -145,3 +145,51 @@ paper.on('link:pointerclick', function(linkView) {
     });
    popup.render();
 });
+
+function checkContextDiagram(){
+    
+    var solomachine = true;//检查是否有孤立machine
+    var notexistdomain = true;//是否存在domain
+    var existph = true;//假设每个interface都有pheno...
+
+    var models = paper.model.attributes.cells.models;
+    var machine_id = null;
+
+    for(var i=0;i<models.length;i++){
+        if(models[i].attributes.type == "machine.CustomElement") machine_id = models[i].id;
+    }
+
+    for(var i=0;i<models.length;i++){
+        if(models[i].attributes.type == "interface.CustomLink"){
+            if(models[i].attributes.source.id == machine_id) solomachine = false;
+            if(models[i].attributes.target.id == machine_id) solomachine = false;
+            console.log(models[i]);
+            if(models[i].phenomenon == undefined || models[i].phenomenon.length==0) existph = false; 
+
+
+        }
+        else if(models[i].attributes.type == "domain.CustomElement") notexistdomain = false;
+    }
+    
+    var correct = "context diagram is correct";
+    var error = null;
+
+    if(solomachine==true) error = "exist solomachine\n";//孤立machine怎么翻译
+    else if(notexistdomain==true) {
+        if(error==null){
+            error = "not exist domain\n";
+        }
+        else error += "not exist domain\n";
+    }
+    else if(existph == false){
+        if(error == null){
+            error = "undefined interface";
+        }
+        else error += "undefined interface";
+    }
+
+    if(error!=null)
+        alert(error);
+    else
+        alert(correct);
+}
