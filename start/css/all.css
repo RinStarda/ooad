@@ -6,7 +6,7 @@
 .left{
   margin-top: 0px;
   margin-left: 0px;
-  height: 600px;
+  height: 635px;
   width: 110px;
   background-color: beige;
   position:absolute;
@@ -21,7 +21,7 @@
   margin-top: 0px;
   margin-left: 80px;
   margin-right: 235px;
-  height: 600px;
+  height: 635px;
   width: 780px;
   background-color: yellow;
 }
@@ -29,7 +29,7 @@
 .right{
   right: 0px;
   top: 85px;
-  height: 600px;
+  height: 635px;
   width: 280px;
   background-color: beige;
   position:absolute;
