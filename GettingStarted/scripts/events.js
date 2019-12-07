@@ -173,27 +173,27 @@ function checkContextDiagram(){
         else if(models[i].attributes.type == "domain.CustomElement") notexistdomain = false;
     }
     
-    var correct = "context diagram is correct";
+    var correct = "Correct Context Diagram!";
     var error = null;
 
-    if(solomachine==true) error = "exist isolated machine\n";//孤立machine怎么翻译
+    if(solomachine==true) error = "There is an isolated machine!\n";//孤立machine怎么翻译
     else if(notexistdomain==true) {
         if(error==null){
-            error = "not exist domain\n";
+            error = "Please add at least one domain!\n";
         }
-        else error += "not exist domain\n";
+        else error += "Please add at least one domain!\n";
     }
     else if(existph == false){
         if(error == null){
-            error = "undefined interface\n";
+            error = "Please define the interface!\n";
         }
-        else error += "undefined interface\n";
+        else error += "Please define the interface!\n";
     }
     else if(domain.length!=0){
         if(error == null){
-            error = "isolated domain\n";
+            error = "There is an isolated domain\n";
         }
-        else error += "isolated domain\n";
+        else error += "There is an isolated domain\n";
     }
 
     if(error!=null)
