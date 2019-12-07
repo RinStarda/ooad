@@ -1,6 +1,21 @@
 var lock = false;
 var source = null;
 var target = null;
+var machine = new Vue({
+    el:'#machine',
+    data:{
+        id:null,
+        connected:false
+    }
+});
+
+var requirement = new Vue({
+    el:'#requirement',
+    data:{
+        id:null,
+        connected:false
+    }
+});
 
 var graph = new joint.dia.Graph;
 var paper = new joint.dia.Paper({

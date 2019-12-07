@@ -38,7 +38,5 @@ function drawProblemDomain(pname)
     element.position(300, 50);
     element.resize(130, 50);
     element.addTo(graph);
-    updateElement();
     var models = paper.model.attributes.cells.models;
-    domainList.item.push({id:models[models.length-1].id})
 }
