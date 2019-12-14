@@ -1,4 +1,4 @@
-function drawInterface()
+function drawInterface(label)
 {
     joint.dia.Link.define('interface.CustomLink',{
         attrs: {
@@ -36,12 +36,5 @@ function drawInterface()
     link.source(source);
     link.target(target);
     link.addTo(graph);
-
-    var removeButton = new joint.linkTools.Remove();
-    var toolsView = new joint.dia.ToolsView({
-        tools:[removeButton]
-    });
-    var linkView = link.findView(paper);
-    linkView.addTools(toolsView);
-    linkView.showTools();
+    link.labels([{attrs: {text: {text: linkname.pop()}}}]);
 }

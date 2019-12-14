@@ -28,7 +28,6 @@ function updatePhenomenon(oldname,newname){
 function getLabelById(id)
 {
     var models = paper.model.attributes.cells.models;
-    console.log(id);
     for(i=0;i<models.length;i++){
         if(models[i].id==id) return models[i].attributes.attrs.label.text;
     }

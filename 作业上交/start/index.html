@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Painter</title>
+
+    <link href="css/1.css" type="text/css" rel="stylesheet"/>
+    <link href="css/all.css" type="text/css" rel="stylesheet"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
+    <link href="css/joint.ui.contextToolbar.min.css" type="text/css" rel="stylesheet">
+    <link href="css/joint.ui.popup.min.css" type="text/css" rel="stylesheet">
+
+  </head>
+
+<body>
+
+<div class="header">
+  <div class="nav">
+    <a href="javascript:showContextDiagram();" style="width: 250px" >ContextDiagram</a>
+    <a href="javascript:showProblemDiagram();" style="width: 250px">ProblemDiagram</a>
+    <!--<a>Check</a>-->
+    <a id="editor">Editor</a>
+    <div class="nav-left">
+      <a href="#" class="local">Painter</a>
+    </div>
+</div>
+</div>
+
+  <div class="left">
+    <br>
+    <input type="radio" name="shape" id="machine" value="machine" checked><img src="css/img/machine.png" width="30px"><br><br>
+    <input type="radio" name="shape" id="problemDomain" value="problemDomain"><img src="css/img/domain.png" width="30px"><br><br>
+    <input type="radio" name="shape" id="requirement" value="requirement"><img src="css/img/requirement.png" width="30px"><br><br>
+    <input type="radio" name="shape" id="interface" value="interface"><img src="css/img/interface.png" width="30px"><br><br>
+    <input type="radio" name="shape" id="reference" value="reference"><img src="css/img/reference.png" width="30px"><br><br>
+    <input type="radio" name="shape" id="constraint" value="constraint"><img src="css/img/constraint.png" width="30px"><br><br>
+  </div>
+
+    <div class="middle">
+      <div id="myholder"></div>
+    </div>
+
+    <div class="right">
+      <div>
+      <ul class="ce" >
+        <li>
+          <a href="#">Phenomenon</a>
+          <ul class="er">
+
+            <table id="showphenomenon">
+              <tr>
+                <th>Initiator  </th>
+                <th>Reciever  </th>
+                <th>Description</th>
+              </tr>
+              <tr v-for="item in items">
+                <td>{{item.initiator}}</td>
+                <td>{{item.reciever}}</td>
+                <td>{{item.description}}</td>
+              </tr>
+            </table>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Check Painting</a>
+          <ul class="er">
+
+            <li class="e_li">
+              <a href="#" onclick="checkContextDiagram()">
+                1.1Designate machine.<br>
+                1.2:Identify domains.<br>
+                1.3:Identify interactions.<br>
+                1.4:Check context diagram.
+              </a>
+
+            </li>
+            <li class="e_li">
+              <a href="#" onclick="checkProblemDiagram()">
+                2.1:Identify requirements.<br>
+                2.2:Identify references.<br>
+                2.3:Check problem diagram.
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!--<div class="clear"></div>-->
+      </ul></div>
+
+
+      <!--<div class="inspector-container"></div>-->
+
+    </div>
+
+<script src="scripts/source/jquery-1.4.2.min.js"></script>
+<script src="scripts/source/main.js"></script>
+<script src="scripts/source/jquery.js"></script>
+<script src="scripts/source/lodash.js"></script>
+<script src="scripts/source/backbone.js"></script>
+<script src="scripts/source/graphlib.core.js"></script>
+<script src="scripts/source/dagre.core.js"></script>
+<script src="scripts/source/vue.js"></script>
+<script src="scripts/source/joint.js"></script>
+<script src="scripts/source/joint.ui.contextToolbar.min.js"></script>
+<script src="scripts/source/joint.ui.popup.min.js"></script>
+
+<script src="scripts/phenomenon.js"></script>
+<script src="scripts/canvas.js"></script>
+<script src="scripts/machine.js"></script>
+<script src="scripts/problemDomain.js"></script>
+<script src="scripts/interface.js"></script>
+<script src="scripts/requirement.js"></script>
+<script src="scripts/reference.js"></script>
+<script src="scripts/constraint.js"></script>
+
+
+<script src="scripts/contextDiagram.js"></script>
+<script src="scripts/problemDiagram.js"></script>
+
+
+<script src="scripts/source/painter.min.js"></script>
+<script src="scripts/source/rappid.min.js"></script>
+</body>
+
+</html>
