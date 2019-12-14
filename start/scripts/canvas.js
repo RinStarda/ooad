@@ -116,10 +116,13 @@ paper.on('element:pointerdblclick', function(elementView) {
                 'click .phy': function(){
                     var property = this.$('.phy').val();
                     if(property == "Design"){
-                        model.attr('r2/x',10);
+                        model.attr('r2/x',12);
+                        model.attr('r2/refWidth','70%');
+                        model.attr('r1/refWidth','70%');
                     }
                     else
                         model.attr('r2/x',0);
+                        model.attr('r2/refWidth','112%');
                 },
                 'click .dt': function(){
                     var type = this.$('.dt').val();

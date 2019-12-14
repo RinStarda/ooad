@@ -5,7 +5,7 @@ function drawProblemDomain(pname)
         attrs: {
             r1: {
                 strokeWidth: 1,
-                stroke: '#000000',
+                stroke: 'black',
                 fill: 'white'
             },
             r2: {
@@ -58,11 +58,11 @@ function drawProblemDomain(pname)
         },
         r2: {
             x: 0, // additional x offset
-            refWidth: '100%',
+            refWidth: '120%',
             refHeight: '100%',
         },
     });
     element.position(300, 50);
-    element.resize(150, 50);
+    element.resize(150, 55);
     element.addTo(graph);
 }
