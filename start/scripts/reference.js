@@ -38,4 +38,5 @@ function drawReference()
     link.source(source);
     link.target(target);
     link.addTo(graph);
+    link.labels([{attrs: {text: {text: linkname.pop()}}}]);
 }
