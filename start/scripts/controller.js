@@ -217,6 +217,10 @@ paper.on('link:pointerclick', function(linkView) {
                 addPhenomenon(p);
                 updateLabel(linkView.model);
                 popup.remove();
+            },
+            'click .delete':function(){
+                updateLabel(linkView.model);
+                popup.remove();
             }
         },
         content: '<div>'+
@@ -296,6 +300,10 @@ function combination(){
     var link = new joint.shapes.interface.CustomLink();
     link.source(uniquemachine);
     link.target(newDomain);
+    link.labels([{attrs: {text: {text: linkname.pop()}}}]);
+    if(link.phenomenon == undefined ){
+        link.phenomenon = new Array();
+    };
     link.addTo(graph);
 
     //遍历模型，如果是选中的领域，将其线连接端点转换到新的，如果是domain则查看是否删除
@@ -304,13 +312,21 @@ function combination(){
         if(models[i].attributes.type == "interface.CustomLink"){
             for(var j=0;j<combination.length;j++){
                 if(combination[j].value == models[i].attributes.source.id){
-                    for(var k=0;k<models[i].phenomenon;k++){
+                    for(var k=0;k<models[i].phenomenon.length;k++){
+                        if(models[i].phenomenon[k].Initiator != uniquemachine.id)
+                            models[i].phenomenon[k].Initiator = newDomainId;
+                        else if(models[i].phenomenon[k].Receiver != uniquemachine.id)
+                            models[i].phenomenon[k].Receiver = newDomainId;
                         link.phenomenon.push(models[i].phenomenon[k]);
                     }
                     models[i].remove();
                 }
                 else if(combination[j].value == models[i].attributes.target.id){
-                    for(var k=0;k<models[i].phenomenon;k++){
+                    for(var k=0;k<models[i].phenomenon.length;k++){
+                        if(models[i].phenomenon[k].Initiator != uniquemachine.id)
+                            models[i].phenomenon[k].Initiator = newDomainId;
+                        else if(models[i].phenomenon[k].Receiver != uniquemachine.id)
+                            models[i].phenomenon[k].Receiver = newDomainId;
                         link.phenomenon.push(models[i].phenomenon[k]);
                     }
                     models[i].remove();
@@ -318,6 +334,8 @@ function combination(){
             }
         }
     }
+    updateLabel(link);
+    
     for(var i = 0;i<models.length;i++){
         //检查该domain是否为要合并的domain
         if(models[i].attributes.type == "domain.CustomElement"){
