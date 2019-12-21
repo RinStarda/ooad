@@ -269,3 +269,30 @@ function updateAllLabel(id){
         }
     }
 }
+
+function getDomainListHtml(){
+    var combination = document.getElementById('combination');
+    var innerHtml = "";
+    var models = paper.model.attributes.cells.models;
+    for(var i=0;i<models.length;i++){
+        if(models[i].attributes.type == "domain.CustomElement"){
+            innerHtml += '<input type="checkbox" name="com" value="'+ models[i].id + '">' + getLabelById(models[i].id) + '<br>';
+        }
+    }
+    innerHtml += '<button onclick="combination()">confirm</button>';
+    combination.innerHTML = innerHtml;
+}
+
+/*function combination(){
+    var models = paper.model.attributes.cells.models;
+    var combination = document.getElementByName("com");
+    drawProblemDomain();
+    //获得即将合并的问题领域
+    var comdomain = models[models.length-1];
+    //修改线的连接
+    for(var i = 0;i<models.length-1;i++){
+        if()
+    }
+
+
+}*/
