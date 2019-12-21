@@ -1,10 +1,5 @@
 function drawRequirement(rname)
 {
-    /*if(requirement.id!=null)
-    {
-        alert('requirement existed!');
-        return;
-    }*/
     rname=typeof(rname) !='undefined' ? rname : "requirement";
     var CustomElement = joint.dia.Element.define('requirement.CustomElement', {
         attrs: {
