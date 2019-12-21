@@ -242,7 +242,12 @@ paper.on('link:pointerclick', function(linkView) {
 
 function updateLabel(model){
     var initiators = new Array();
+    if(model.attributes.labels[0].attrs.text.text == "")
+    {
+        model.labels([{attrs: {text: {text: linkname.pop()}}}]);
+    }
     var l = model.attributes.labels[0].attrs.text.text[0] + ":";
+    if(model.phenomenon.length == "undefined") model.phenomenon = new Array();
     for(var i=0;i<model.phenomenon.length;i++){
         initiators.push(model.phenomenon[i].Initiator);
     } 

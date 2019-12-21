@@ -65,14 +65,14 @@ function showContextDiagram()
             models[i].attr('button/visibility','hidden');
             models[i].attr('buttonLabel/visibility','hidden');
         }
-        else if (models[i].attributes.type == "standard.Link") {
-            models[i].attr('line/visibility','hidden');
-        }
         else if (models[i].attributes.type == "reference.CustomLink"){//constraint.CustomLink
-            models[i].attr('line/visibility','hidden')
+            models[i].attr('line/visibility','hidden');
+            models[i].labels([{attrs: {text: {text: ''}}}]);
+
         }
         else if (models[i].attributes.type == "constraint.CustomLink") {
             models[i].attr('line/visibility','hidden');
+            models[i].labels([{attrs: {text: {text: ''}}}]);
         }
     }
     return;

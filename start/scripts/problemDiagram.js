@@ -30,14 +30,13 @@ function showProblemDiagram(){
             models[i].attr('button/visibility','visible');
             models[i].attr('buttonLabel/visibility','visible');
         }
-        else if (models[i].attributes.type == "standard.Link") {
-            models[i].attr('line/visibility','visible');
-        }
         else if (models[i].attributes.type == "reference.CustomLink"){
-            models[i].attr('line/visibility','visible')
+            models[i].attr('line/visibility','visible');
+            updateLabel(models[i]);
         }
         else if (models[i].attributes.type == "constraint.CustomLink") {
             models[i].attr('line/visibility','visible');
+            updateLabel(models[i]);
         }
     }
     return;
