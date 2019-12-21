@@ -65,4 +65,5 @@ function drawProblemDomain(pname)
     element.position(300, 50);
     element.resize(150, 55);
     element.addTo(graph);
+    return element;
 }

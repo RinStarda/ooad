@@ -74,4 +74,5 @@ function drawMachine(mname)
     element.addTo(graph);
     var models = paper.model.attributes.cells.models;
     machine.id=models[models.length-1].id;
+    return element;
 }

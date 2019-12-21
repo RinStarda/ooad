@@ -1,6 +1,7 @@
 var lock = false;
 var source = null;
 var target = null;
+var uniquemachine = null;
 var machine = new Vue({
     el:'#machine',
     data:{
@@ -55,7 +56,7 @@ paper.on('blank:pointerclick',function(){
 
     if(m.checked === true)
     {
-        drawMachine();
+        uniquemachine = drawMachine();
         m.checked=false;
         return;
     }
@@ -286,16 +287,45 @@ function getDomainListHtml(){
     combination.innerHTML = innerHtml;
 }
 
-/*function combination(){
+function combination(){
+    
+    var combination = document.getElementsByName("com");//获得需要合并的domain的ID
+    var newDomain = drawProblemDomain();
+    var newDomainId = newDomain.id;
     var models = paper.model.attributes.cells.models;
-    var combination = document.getElementByName("com");
-    drawProblemDomain();
-    //获得即将合并的问题领域
-    var comdomain = models[models.length-1];
-    //修改线的连接
-    for(var i = 0;i<models.length-1;i++){
-        if()
+    var link = new joint.shapes.interface.CustomLink();
+    link.source(uniquemachine);
+    link.target(newDomain);
+    link.addTo(graph);
+
+    //遍历模型，如果是选中的领域，将其线连接端点转换到新的，如果是domain则查看是否删除
+    for(var i = 0;i<models.length;i++){
+        //检查该link的两端是否与要合并的元素有关
+        if(models[i].attributes.type == "interface.CustomLink"){
+            for(var j=0;j<combination.length;j++){
+                if(combination[j].value == models[i].attributes.source.id){
+                    for(var k=0;k<models[i].phenomenon;k++){
+                        link.phenomenon.push(models[i].phenomenon[k]);
+                    }
+                    models[i].remove();
+                }
+                else if(combination[j].value == models[i].attributes.target.id){
+                    for(var k=0;k<models[i].phenomenon;k++){
+                        link.phenomenon.push(models[i].phenomenon[k]);
+                    }
+                    models[i].remove();
+                }
+            }
+        }
     }
-
-
-}*/
+    for(var i = 0;i<models.length;i++){
+        //检查该domain是否为要合并的domain
+        if(models[i].attributes.type == "domain.CustomElement"){
+            for(var j=0;j<combination.length;j++){
+                if(combination[j].value == models[i].id){
+                    models[i].remove();
+                }
+            }
+        }
+    }
+}
